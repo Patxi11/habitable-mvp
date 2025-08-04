@@ -1,12 +1,12 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Navigation from '../../components/Navigation'
 import { useLanguage } from '../../contexts/LanguageContext'
 import { Users, Building2, ArrowRight, Check } from 'lucide-react'
 
-export default function SignupPage() {
+function SignupContent() {
   const { t } = useLanguage()
   const searchParams = useSearchParams()
   const [userType, setUserType] = useState<'participate' | 'promote' | null>(null)
@@ -327,5 +327,13 @@ export default function SignupPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function SignupPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-black flex items-center justify-center"><div className="text-white">Loading...</div></div>}>
+      <SignupContent />
+    </Suspense>
   )
 }
