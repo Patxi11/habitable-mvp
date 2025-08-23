@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Navigation from '../../components/Navigation'
 import ProjectCard from '../../components/ProjectCard'
 import { useLanguage } from '../../contexts/LanguageContext'
-import { Search, Filter, MapPin, DollarSign, Calendar } from 'lucide-react'
+import { Search, Filter, MapPin, DollarSign, Calendar, ArrowRight } from 'lucide-react'
 
 // Mock data for demonstration
 const mockProjects = [
@@ -85,14 +85,20 @@ export default function Projects() {
   const availableFilters = Array.from(new Set(mockProjects.flatMap(p => p.tags)))
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-gradient-to-br from-dark-950 via-dark-900 to-dark-950 relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-water-500/8 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-sustain-500/8 rounded-full blur-3xl" />
+      </div>
+      
       <Navigation />
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-medium text-white mb-2">{t('projects.title')}</h1>
-          <p className="text-xl text-gray-400 max-w-3xl">{t('projects.subtitle')}</p>
+        <div className="mb-8 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">{t('projects.title')}</h1>
+          <p className="text-xl text-dark-400 max-w-3xl mx-auto leading-relaxed">{t('projects.subtitle')}</p>
         </div>
 
         {/* Search and Filters */}
@@ -105,17 +111,17 @@ export default function Projects() {
                 placeholder="Search projects by name, location, or description..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full bg-[#0a0a0a] border border-[#2a2a2a] rounded-lg px-4 py-3 pl-10 text-white placeholder-gray-500 focus:outline-none focus:border-gray-600 transition-all duration-200"
+                className="w-full bg-dark-900/50 backdrop-blur-sm border border-dark-700/50 rounded-lg px-4 py-3 pl-10 text-white placeholder-dark-400 focus:outline-none focus:border-water-500/50 transition-all duration-300"
               />
             </div>
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="bg-[#1a1a1a] border border-[#2a2a2a] text-white font-medium py-3 px-4 rounded-lg hover:bg-[#2a2a2a] transition-all duration-200 flex items-center"
+              className="bg-dark-800/50 backdrop-blur-sm border border-dark-700/50 text-white font-medium py-3 px-4 rounded-lg hover:bg-dark-700/50 hover:border-dark-600/50 transition-all duration-300 flex items-center"
             >
               <Filter className="w-4 h-4 mr-2" />
               Filters
               {selectedFilters.length > 0 && (
-                <span className="ml-2 bg-white text-black text-xs px-2 py-1 rounded-full">
+                <span className="ml-2 bg-gradient-to-r from-water-500 to-sustain-500 text-white text-xs px-2 py-1 rounded-full">
                   {selectedFilters.length}
                 </span>
               )}
@@ -124,7 +130,7 @@ export default function Projects() {
 
           {/* Filter Options */}
           {showFilters && (
-            <div className="bg-[#111111] border border-[#1a1a1a] rounded-lg p-6">
+            <div className="bg-gradient-to-br from-dark-900/50 to-dark-800/30 backdrop-blur-sm border border-dark-700/50 rounded-2xl p-6">
               <h3 className="font-medium mb-3 text-white">Filter by Tags</h3>
               <div className="flex flex-wrap gap-2">
                 {availableFilters.map((filter) => (
@@ -137,10 +143,10 @@ export default function Projects() {
                           : [...prev, filter]
                       )
                     }}
-                    className={`px-3 py-1 rounded-full text-sm transition-colors duration-200 ${
+                    className={`px-3 py-1 rounded-full text-sm transition-colors duration-300 ${
                       selectedFilters.includes(filter)
-                        ? 'bg-white text-black'
-                        : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                        ? 'bg-gradient-to-r from-water-500 to-sustain-500 text-white'
+                        : 'bg-dark-700/50 text-dark-300 hover:bg-dark-600/50'
                     }`}
                   >
                     {filter}
@@ -150,7 +156,7 @@ export default function Projects() {
               {selectedFilters.length > 0 && (
                 <button
                   onClick={() => setSelectedFilters([])}
-                  className="text-gray-400 hover:text-white text-sm mt-3"
+                  className="text-dark-400 hover:text-water-400 text-sm mt-3 transition-colors duration-300"
                 >
                   Clear all filters
                 </button>
@@ -161,7 +167,7 @@ export default function Projects() {
 
         {/* Results Summary */}
         <div className="mb-6">
-          <p className="text-gray-400">
+          <p className="text-dark-400">
             Showing {filteredProjects.length} of {mockProjects.length} projects
           </p>
         </div>
@@ -179,11 +185,11 @@ export default function Projects() {
           </div>
         ) : (
           <div className="text-center py-12">
-            <div className="text-gray-400 mb-4">
+            <div className="text-dark-400 mb-4">
               <Search className="w-16 h-16 mx-auto" />
             </div>
             <h3 className="text-xl font-medium text-white mb-2">No projects found</h3>
-            <p className="text-gray-400 mb-4">
+            <p className="text-dark-400 mb-4">
               Try adjusting your search terms or filters to find more projects.
             </p>
             <button
@@ -191,7 +197,7 @@ export default function Projects() {
                 setSearchTerm('')
                 setSelectedFilters([])
               }}
-              className="bg-white text-black font-medium py-3 px-6 rounded-lg hover:bg-gray-100 transition-colors"
+              className="bg-gradient-to-r from-water-500 to-sustain-500 text-white font-medium py-3 px-6 rounded-lg hover:from-water-600 hover:to-sustain-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-water-500/25"
             >
               Clear Search
             </button>
@@ -200,14 +206,15 @@ export default function Projects() {
 
         {/* Call to Action */}
         <div className="mt-16 text-center">
-          <div className="bg-[#111111] border border-[#1a1a1a] rounded-lg p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-medium mb-4 text-white">Don't see what you're looking for?</h3>
-            <p className="text-gray-400 mb-6">
+          <div className="bg-gradient-to-r from-dark-900/50 to-dark-800/50 backdrop-blur-sm border border-dark-700/50 rounded-2xl p-8 max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold mb-4 text-white">Don't see what you're looking for?</h3>
+            <p className="text-dark-400 mb-6 leading-relaxed">
               Have a project site or development opportunity that could benefit from our platform? 
               Submit it for review by our team.
             </p>
-            <a href="/submit" className="bg-white text-black font-medium py-3 px-6 rounded-lg hover:bg-gray-100 transition-colors inline-block">
+            <a href="/submit" className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-water-500 to-sustain-500 text-white font-semibold rounded-lg hover:from-water-600 hover:to-sustain-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-water-500/25 transform hover:scale-105">
               Submit Your Project
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
         </div>

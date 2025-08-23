@@ -16,11 +16,13 @@ export default function Navigation() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-14">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3">
-            <div className="text-gray-400">
-              <Logo size="sm" />
-            </div>
-            <span className="text-lg font-medium text-white">HABITABLE</span>
+          <Link href="/" className="flex items-center">
+            <img 
+              src="/habitable-logo-text.svg" 
+              alt="HABITABLE" 
+              className="h-8 w-auto text-white"
+              style={{filter: 'brightness(0) invert(1)'}}
+            />
           </Link>
 
           {/* Desktop Navigation */}

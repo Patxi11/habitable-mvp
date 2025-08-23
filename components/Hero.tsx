@@ -8,66 +8,74 @@ export default function Hero() {
   const { t } = useLanguage()
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-black text-white overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900" />
-      
-      {/* Grid pattern overlay */}
-      <div className="absolute inset-0" style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        opacity: 0.5
-      }} />
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-dark-950 via-dark-900 to-dark-950 text-white overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-water-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-sustain-500/10 rounded-full blur-3xl" />
+      </div>
       
       <div className="relative z-10 max-w-6xl mx-auto px-4 text-center">
         {/* Main heading */}
         <div className="mb-8">
           <div className="flex items-center justify-center mb-6">
-            <Building2 className="w-12 h-12 text-white mr-4" />
-            <h1 className="text-7xl md:text-8xl font-bold tracking-tight">
+            <Building2 className="w-12 h-12 text-water-400 mr-4" />
+            <h1 className="text-7xl md:text-8xl font-bold tracking-tight text-white">
               HABITABLE
             </h1>
           </div>
-          <p className="text-xl md:text-2xl text-gray-300 font-light">
+          <p className="text-xl md:text-2xl text-dark-300 font-light">
             {t('hero.subtitle')}
           </p>
         </div>
 
         {/* Description */}
-        <p className="text-lg md:text-xl text-gray-400 max-w-4xl mx-auto mb-12 leading-relaxed">
+        <p className="text-lg md:text-xl text-dark-400 max-w-4xl mx-auto mb-12 leading-relaxed">
           {t('hero.description')}
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Link 
-            href="/projects" 
-            className="group inline-flex items-center px-8 py-4 bg-white text-black font-medium rounded-lg hover:bg-gray-100 transition-all duration-200 transform hover:scale-105"
-          >
-            {t('hero.cta.explore')}
-            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Link>
+        <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
+          <div className="text-center">
+            <Link 
+              href="/projects" 
+              className="group inline-flex items-center justify-center w-64 h-14 px-8 py-4 bg-gradient-to-r from-water-500 to-water-600 text-white font-medium rounded-lg hover:from-water-600 hover:to-water-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl hover:shadow-water-500/25"
+            >
+              <span className="whitespace-nowrap">Join</span>
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <p className="text-dark-400 text-sm mt-3 italic max-w-64">
+              For developers, investors, architects, and builders who want to create impactful projects.
+            </p>
+          </div>
           
-          <Link 
-            href="/submit" 
-            className="inline-flex items-center px-8 py-4 border border-gray-700 text-white font-medium rounded-lg hover:border-gray-600 hover:bg-gray-900 transition-all duration-200"
-          >
-            {t('hero.cta.submit')}
-          </Link>
+          <div className="text-center">
+            <Link 
+              href="/submit" 
+              className="group inline-flex items-center justify-center w-64 h-14 px-8 py-4 bg-dark-800/50 backdrop-blur-sm border border-dark-700/50 text-white font-medium rounded-lg hover:border-dark-600/50 hover:bg-dark-700/50 transition-all duration-300"
+            >
+              <span className="whitespace-nowrap">Promote</span>
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <p className="text-dark-400 text-sm mt-3 italic max-w-64">
+              For landowners & cities who want to catalyze their sites.
+            </p>
+          </div>
         </div>
 
         {/* Stats */}
         <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          <div className="text-center">
-            <div className="text-3xl font-bold text-white mb-2">50+</div>
-            <div className="text-gray-400">{t('hero.stats.projects')}</div>
+          <div className="text-center p-6 bg-dark-900/30 backdrop-blur-sm border border-dark-700/50 rounded-xl hover:border-dark-600/50 transition-all duration-300">
+            <div className="text-3xl font-bold text-water-400 mb-2">50+</div>
+            <div className="text-dark-400">{t('hero.stats.projects')}</div>
           </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-white mb-2">15</div>
-            <div className="text-gray-400">{t('hero.stats.cities')}</div>
+          <div className="text-center p-6 bg-dark-900/30 backdrop-blur-sm border border-dark-700/50 rounded-xl hover:border-dark-600/50 transition-all duration-300">
+            <div className="text-3xl font-bold text-sustain-400 mb-2">15</div>
+            <div className="text-dark-400">{t('hero.stats.cities')}</div>
           </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-white mb-2">€2M+</div>
-            <div className="text-gray-400">{t('hero.stats.investment')}</div>
+          <div className="text-center p-6 bg-dark-900/30 backdrop-blur-sm border border-dark-700/50 rounded-xl hover:border-dark-600/50 transition-all duration-300">
+            <div className="text-3xl font-bold text-water-400 mb-2">€2M+</div>
+            <div className="text-dark-400">{t('hero.stats.investment')}</div>
           </div>
         </div>
       </div>

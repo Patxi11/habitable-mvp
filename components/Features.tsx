@@ -46,14 +46,20 @@ export default function Features() {
   ]
 
   return (
-    <section className="py-24 bg-black text-white">
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="py-24 bg-gradient-to-b from-dark-950 to-dark-900 text-white relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/3 left-1/3 w-96 h-96 bg-water-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/3 right-1/3 w-96 h-96 bg-sustain-500/5 rounded-full blur-3xl" />
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 relative z-10">
         {/* Section header */}
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
             {t('features.title')}
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-xl text-dark-400 max-w-3xl mx-auto">
             {t('features.subtitle')}
           </p>
         </div>
@@ -62,26 +68,28 @@ export default function Features() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => {
             const IconComponent = feature.icon
+            // Use consistent water/sustain gradient for all features
+            const gradientClass = index % 2 === 0 ? 'from-water-500 to-water-600' : 'from-sustain-500 to-sustain-600'
             return (
               <div 
                 key={index}
-                className="group relative p-8 bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl hover:border-gray-700 transition-all duration-300 hover:transform hover:scale-105"
+                className="group relative p-8 bg-gradient-to-br from-dark-900/50 to-dark-800/30 backdrop-blur-sm border border-dark-700/50 rounded-2xl hover:border-dark-600/50 hover:shadow-2xl hover:shadow-water-500/10 transition-all duration-300 hover:transform hover:scale-105"
               >
                 {/* Icon with gradient background */}
-                <div className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${feature.gradient} mb-6`}>
+                <div className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${gradientClass} mb-6 shadow-lg`}>
                   <IconComponent className="w-6 h-6 text-white" />
                 </div>
 
                 {/* Content */}
-                <h3 className="text-xl font-semibold mb-4 text-white group-hover:text-gray-100 transition-colors">
+                <h3 className="text-xl font-semibold mb-4 text-white group-hover:text-water-100 transition-colors">
                   {feature.title}
                 </h3>
-                <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
+                <p className="text-dark-400 leading-relaxed group-hover:text-dark-300 transition-colors">
                   {feature.description}
                 </p>
 
                 {/* Hover effect overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
+                <div className="absolute inset-0 bg-gradient-to-r from-water-500/5 to-sustain-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
               </div>
             )
           })}
@@ -89,14 +97,14 @@ export default function Features() {
 
         {/* Bottom CTA */}
         <div className="text-center mt-16">
-          <p className="text-gray-400 mb-6">
+          <p className="text-dark-400 mb-6">
             {t('features.cta.text')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-3 bg-white text-black font-medium rounded-lg hover:bg-gray-100 transition-colors">
+            <button className="group px-8 py-3 bg-gradient-to-r from-water-500 to-water-600 text-white font-medium rounded-lg hover:from-water-600 hover:to-water-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-water-500/25 transform hover:scale-105">
               {t('features.cta.participate')}
             </button>
-            <button className="px-8 py-3 border border-gray-700 text-white font-medium rounded-lg hover:border-gray-600 hover:bg-gray-900 transition-colors">
+            <button className="px-8 py-3 bg-dark-800/50 backdrop-blur-sm border border-dark-700/50 text-white font-medium rounded-lg hover:border-dark-600/50 hover:bg-dark-700/50 transition-all duration-300">
               {t('features.cta.promote')}
             </button>
           </div>

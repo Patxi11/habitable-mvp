@@ -53,139 +53,188 @@ export default function HomePageClient() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center px-4">
-        <div className="max-w-7xl mx-auto text-center">
+      <section className="relative min-h-screen flex items-center justify-center px-4 bg-gradient-to-br from-dark-950 via-dark-900 to-dark-950">
+        {/* Background elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-water-500/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-sustain-500/10 rounded-full blur-3xl" />
+        </div>
+        
+        <div className="max-w-7xl mx-auto text-center relative z-10">
           {/* Key sentence */}
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-8 leading-tight w-full mx-auto px-2">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-8 leading-tight w-full mx-auto px-2 text-white">
             {t('home.hero.title')}
           </h1>
           
           {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-dark-300 mb-12 max-w-4xl mx-auto leading-relaxed">
             {t('home.hero.subtitle')}
           </p>
           
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <Link 
-              href="/projects"
-              className="inline-flex items-center px-8 py-4 bg-white text-black font-semibold rounded-lg hover:bg-gray-100 transition-all duration-200 text-lg"
-            >
-              {t('hero.participate')}
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Link>
-            <Link 
-              href="/submit"
-              className="inline-flex items-center px-8 py-4 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-700 transition-all duration-200 text-lg border border-gray-700"
-            >
-              {t('hero.promote')}
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Link>
+          <div className="flex flex-col sm:flex-row gap-8 justify-center items-center mb-16">
+            <div className="text-center">
+              <Link 
+                href="/projects"
+                className="group inline-flex items-center justify-center w-64 h-14 px-8 py-4 bg-gradient-to-r from-water-500 to-sustain-500 text-white font-semibold rounded-lg hover:from-water-600 hover:to-sustain-600 transition-all duration-300 text-lg shadow-lg hover:shadow-xl hover:shadow-water-500/25 transform hover:scale-105"
+              >
+                <span className="whitespace-nowrap">Join</span>
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <p className="text-dark-400 text-sm mt-3 italic max-w-64">
+                For developers, investors, architects, and builders shaping the future.
+              </p>
+            </div>
+            <div className="text-center">
+              <Link 
+                href="/submit"
+                className="group inline-flex items-center justify-center w-64 h-14 px-8 py-4 bg-gradient-to-r from-water-500 to-sustain-500 text-white font-semibold rounded-lg hover:from-water-600 hover:to-sustain-600 transition-all duration-300 text-lg shadow-lg hover:shadow-xl hover:shadow-water-500/25 transform hover:scale-105"
+              >
+                <span className="whitespace-nowrap">Promote</span>
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <p className="text-dark-400 text-sm mt-3 italic max-w-64">
+                For landowners & cities who want to catalyze their high potential sites.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* How Habitable Works Section */}
-      <section className="py-32 bg-gradient-to-b from-[#0a0a0a] via-gray-900/20 to-[#0a0a0a] relative">
-        {/* Subtle radial gradient for depth */}
-        <div className="absolute inset-0 bg-gradient-radial from-gray-800/5 via-transparent to-transparent pointer-events-none" />
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
-          {/* Section Title */}
-          <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-medium mb-4 text-white tracking-tight">
+      <section className="py-24 bg-gradient-to-b from-dark-950 to-dark-900 relative overflow-hidden">
+        {/* Background elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-water-500/8 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-sustain-500/8 rounded-full blur-3xl" />
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
               {t('home.process.title')}
             </h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              A streamlined approach to sustainable urban development
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+              A streamlined approach to sustainable urban development through data-driven insights and collaborative innovation
             </p>
           </div>
           
-          {/* Process Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Process Steps Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {processSteps.map((step, index) => {
               const IconComponent = step.icon
               return (
                 <div key={index} className="group relative">
-                  {/* Card */}
-                  <div className="h-full p-6 bg-[#111111] border border-[#1a1a1a] rounded-lg hover:border-[#2a2a2a] transition-all duration-200">
-                    {/* Icon */}
-                    <div className="mb-4">
-                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-                        <IconComponent className="w-5 h-5 text-gray-300" />
+                  {/* Connection line to next step (hidden on last item and mobile) */}
+                  {index < processSteps.length - 1 && (
+                    <div className="hidden lg:block absolute top-16 left-full w-8 h-0.5 bg-gradient-to-r from-gray-600 to-transparent z-0" />
+                  )}
+                  
+                  {/* Step Card */}
+                  <div className="relative bg-gradient-to-br from-dark-900/50 to-dark-800/30 backdrop-blur-sm border border-dark-700/50 rounded-2xl p-6 hover:border-dark-600/50 hover:shadow-2xl hover:shadow-water-500/10 transition-all duration-300 group-hover:transform group-hover:scale-105">
+                    {/* Step Number */}
+                    <div className="absolute -top-4 -left-4 w-8 h-8 bg-gradient-to-br from-water-500 to-water-600 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg">
+                      {index + 1}
+                    </div>
+                    
+                    {/* Icon Container */}
+                    <div className="mb-6">
+                      <div className="w-16 h-16 bg-gradient-to-br from-water-500/20 to-sustain-500/20 rounded-xl flex items-center justify-center group-hover:from-water-500/30 group-hover:to-sustain-500/30 transition-all duration-300">
+                        <IconComponent className="w-8 h-8 text-water-400 group-hover:text-water-300 transition-colors duration-300" />
                       </div>
                     </div>
                     
                     {/* Content */}
-                    <h3 className="text-white font-medium mb-2 text-sm leading-tight">
-                      {step.title}
-                    </h3>
-                    <p className="text-gray-500 text-xs leading-relaxed">
-                      {step.description}
-                    </p>
-                  </div>
-                  
-                  {/* Step indicator */}
-                  <div className="absolute -top-2 -left-2 w-6 h-6 bg-white text-black rounded-full flex items-center justify-center text-xs font-medium">
-                    {index + 1}
+                    <div className="space-y-3">
+                      <h3 className="text-white font-bold text-lg leading-tight group-hover:text-water-100 transition-colors duration-300">
+                        {step.title}
+                      </h3>
+                      <p className="text-dark-400 text-sm leading-relaxed group-hover:text-dark-300 transition-colors duration-300">
+                        {step.description}
+                      </p>
+                    </div>
+                    
+                    {/* Hover glow effect */}
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-water-500/5 to-sustain-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                   </div>
                 </div>
               )
             })}
           </div>
           
-          {/* Bottom CTA */}
-          <div className="text-center mt-16">
-            <Link 
-              href="/projects"
-              className="inline-flex items-center px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-gray-100 transition-all duration-200 text-sm"
-            >
-              Explore Projects
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </Link>
+          {/* Bottom Section */}
+          <div className="text-center space-y-8">
+            {/* Process Flow Indicator */}
+            <div className="flex items-center justify-center space-x-2 mb-8">
+              {processSteps.map((_, index) => (
+                <div key={index} className="flex items-center">
+                  <div className="w-3 h-3 bg-gradient-to-r from-water-500 to-sustain-500 rounded-full" />
+                  {index < processSteps.length - 1 && (
+                    <div className="w-8 h-0.5 bg-gradient-to-r from-water-500/50 to-sustain-500/50 mx-2" />
+                  )}
+                </div>
+              ))}
+            </div>
+            
+            {/* CTA */}
+            <div className="bg-gradient-to-r from-dark-900/50 to-dark-800/50 backdrop-blur-sm border border-dark-700/50 rounded-2xl p-8 max-w-2xl mx-auto">
+              <h3 className="text-2xl font-bold text-white mb-4">
+                Ready to Transform Urban Development?
+              </h3>
+              <p className="text-dark-400 mb-6 leading-relaxed">
+                Join our platform and discover how data-driven insights can unlock sustainable development opportunities in your area.
+              </p>
+              <Link 
+                href="/projects"
+                className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-water-500 to-sustain-500 text-white font-semibold rounded-xl hover:from-water-600 hover:to-sustain-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-water-500/25 transform hover:scale-105"
+              >
+                Explore Projects
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-black">
+      <section className="py-24 bg-gradient-to-b from-dark-900 to-dark-950">
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
             {t('home.cta.title')}
           </h2>
-          <p className="text-xl text-gray-300 mb-16 max-w-3xl mx-auto">
+          <p className="text-xl text-dark-300 mb-16 max-w-3xl mx-auto">
             {t('home.cta.subtitle')}
           </p>
           
           <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
             {/* Participate */}
-            <div className="text-center">
-              <h3 className="text-2xl font-semibold mb-4">{t('home.cta.participate.title')}</h3>
-              <p className="text-gray-400 mb-6 leading-relaxed">
-                {t('home.cta.participate.description')}
+            <div className="text-center p-8 bg-dark-900/30 backdrop-blur-sm border border-dark-700/50 rounded-2xl hover:border-dark-600/50 transition-all duration-300">
+              <h3 className="text-2xl font-semibold mb-4 text-white">Join</h3>
+              <p className="text-dark-400 mb-6 leading-relaxed">
+                For developers, investors, architects, and builders shaping the future.
               </p>
-              
               <Link 
                 href="/signup"
-                className="inline-flex items-center px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-gray-100 transition-all duration-200 border border-gray-200"
+                className="group inline-flex items-center px-6 py-3 bg-gradient-to-r from-water-500 to-sustain-500 text-white font-medium rounded-lg hover:from-water-600 hover:to-sustain-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-water-500/25"
               >
-                {t('home.cta.participate.button')}
-                <ArrowRight className="ml-2 w-4 h-4" />
+                Join a Project
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
             
             {/* Promote */}
-            <div className="text-center">
-              <h3 className="text-2xl font-semibold mb-4">{t('home.cta.promote.title')}</h3>
-              <p className="text-gray-400 mb-6 leading-relaxed">
-                {t('home.cta.promote.description')}
+            <div className="text-center p-8 bg-dark-900/30 backdrop-blur-sm border border-dark-700/50 rounded-2xl hover:border-dark-600/50 transition-all duration-300">
+              <h3 className="text-2xl font-semibold mb-4 text-white">Promote</h3>
+              <p className="text-dark-400 mb-6 leading-relaxed">
+                For landowners & cities who want to catalyze their high potential sites.
               </p>
-              
               <Link 
                 href="/submit"
-                className="inline-flex items-center px-6 py-3 bg-gray-800 text-white font-medium rounded-lg hover:bg-gray-700 transition-all duration-200 border border-gray-700"
+                className="group inline-flex items-center px-6 py-3 bg-gradient-to-r from-water-500 to-sustain-500 text-white font-medium rounded-lg hover:from-water-600 hover:to-sustain-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-water-500/25"
               >
-                {t('home.cta.promote.button')}
-                <ArrowRight className="ml-2 w-4 h-4" />
+                Promote a Project
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           </div>
