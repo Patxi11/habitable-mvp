@@ -3,11 +3,38 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Navigation from '../../../components/Navigation'
-import { ArrowLeft, Globe, Building, Users, Target } from 'lucide-react'
+import { ArrowLeft, Building2, Users, Globe, Calendar } from 'lucide-react'
 
-export default function BringInterestForm() {
+// Define exact form shape
+type FormDataState = {
+  name: string;
+  email: string;
+  title: string;
+  organization: string;
+  phone: string;
+  city: string;
+  state: string;
+  country: string;
+  population: string;
+  organizationType: string;
+  authority: string;
+  challenges: string[];
+  goals: string[];
+  timeline: string;
+  budget: string;
+  stakeholders: string;
+  currentInitiatives: string;
+  additionalInfo: string;
+}
+
+// Derive the keys that are string[]
+type MultiKeys = {
+  [K in keyof FormDataState]: FormDataState[K] extends string[] ? K : never
+}[keyof FormDataState];
+
+export default function BringHabitableForm() {
   const router = useRouter()
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormDataState>({
     name: '',
     email: '',
     title: '',
@@ -19,8 +46,8 @@ export default function BringInterestForm() {
     population: '',
     organizationType: '',
     authority: '',
-    challenges: [] as string[],
-    goals: [] as string[],
+    challenges: [],
+    goals: [],
     timeline: '',
     budget: '',
     stakeholders: '',
@@ -42,14 +69,13 @@ export default function BringInterestForm() {
     })
   }
 
-  const handleCheckboxChange = (field: string, value: string) => {
-    const currentArray = formData[field as keyof typeof formData] as string[]
-    setFormData({
-      ...formData,
-      [field]: currentArray.includes(value)
-        ? currentArray.filter((i: string) => i !== value)
-        : [...currentArray, value]
-    })
+  // Safe toggle for array fields
+  function toggleMulti(field: MultiKeys, value: string) {
+    setFormData(prev => {
+      const arr = prev[field]; // string[]
+      const next = arr.includes(value) ? arr.filter(i => i !== value) : [...arr, value];
+      return { ...prev, [field]: next };
+    });
   }
 
   return (
@@ -308,7 +334,7 @@ export default function BringInterestForm() {
                   <input
                     type="checkbox"
                     checked={formData.challenges.includes(challenge)}
-                    onChange={() => handleCheckboxChange('challenges', challenge)}
+                    onChange={() => toggleMulti('challenges', challenge)}
                     className="mr-2 rounded border-dark-600 bg-dark-800 text-water-500 focus:ring-water-500"
                   />
                   <span className="text-dark-300 text-sm">{challenge}</span>
@@ -341,7 +367,7 @@ export default function BringInterestForm() {
                   <input
                     type="checkbox"
                     checked={formData.goals.includes(goal)}
-                    onChange={() => handleCheckboxChange('goals', goal)}
+                    onChange={() => toggleMulti('goals', goal)}
                     className="mr-2 rounded border-dark-600 bg-dark-800 text-water-500 focus:ring-water-500"
                   />
                   <span className="text-dark-300 text-sm">{goal}</span>
