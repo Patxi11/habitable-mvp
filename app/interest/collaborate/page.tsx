@@ -5,9 +5,28 @@ import { useRouter } from 'next/navigation'
 import Navigation from '../../../components/Navigation'
 import { ArrowLeft, Heart, Users, Lightbulb, Globe } from 'lucide-react'
 
+// Strong typing for form state and multi-select fields
+type FormDataState = {
+  name: string
+  email: string
+  organization: string
+  phone: string
+  organizationType: string
+  role: string
+  collaborationType: string[]
+  expertise: string[]
+  resources: string[]
+  timeline: string
+  location: string
+  missionAlignment: string
+  additionalInfo: string
+}
+
+type MultiKeys = 'collaborationType' | 'expertise' | 'resources'
+
 export default function CollaborateInterestForm() {
   const router = useRouter()
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormDataState>({
     name: '',
     email: '',
     organization: '',
@@ -37,12 +56,11 @@ export default function CollaborateInterestForm() {
     })
   }
 
-  const handleCheckboxChange = (field: string, value: string) => {
-    setFormData({
-      ...formData,
-      [field]: formData[field as keyof typeof formData].includes(value)
-        ? formData[field as keyof typeof formData].filter((i: string) => i !== value)
-        : [...formData[field as keyof typeof formData], value]
+  function toggleMulti(field: MultiKeys, value: string) {
+    setFormData(prev => {
+      const arr = prev[field] // string[]
+      const next = arr.includes(value) ? arr.filter(i => i !== value) : [...arr, value]
+      return { ...prev, [field]: next }
     })
   }
 
@@ -161,7 +179,7 @@ export default function CollaborateInterestForm() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-dark-300 mb-2">
+              <label className="block text sm font-medium text-dark-300 mb-2">
                 Your Role *
               </label>
               <input
@@ -230,7 +248,7 @@ export default function CollaborateInterestForm() {
                   <input
                     type="checkbox"
                     checked={formData.collaborationType.includes(type)}
-                    onChange={() => handleCheckboxChange('collaborationType', type)}
+                    onChange={() => toggleMulti('collaborationType', type)}
                     className="mr-2 rounded border-dark-600 bg-dark-800 text-water-500 focus:ring-water-500"
                   />
                   <span className="text-dark-300 text-sm">{type}</span>
@@ -263,7 +281,7 @@ export default function CollaborateInterestForm() {
                   <input
                     type="checkbox"
                     checked={formData.expertise.includes(expertise)}
-                    onChange={() => handleCheckboxChange('expertise', expertise)}
+                    onChange={() => toggleMulti('expertise', expertise)}
                     className="mr-2 rounded border-dark-600 bg-dark-800 text-water-500 focus:ring-water-500"
                   />
                   <span className="text-dark-300 text-sm">{expertise}</span>
@@ -293,7 +311,7 @@ export default function CollaborateInterestForm() {
                   <input
                     type="checkbox"
                     checked={formData.resources.includes(resource)}
-                    onChange={() => handleCheckboxChange('resources', resource)}
+                    onChange={() => toggleMulti('resources', resource)}
                     className="mr-2 rounded border-dark-600 bg-dark-800 text-water-500 focus:ring-water-500"
                   />
                   <span className="text-dark-300 text-sm">{resource}</span>
@@ -345,3 +363,4 @@ export default function CollaborateInterestForm() {
     </div>
   )
 }
+
