@@ -40,7 +40,8 @@ export default function ProjectCard({ project, onExpressInterest }: ProjectCardP
   ]
 
   const handleInterestClick = (interestType: string) => {
-    onExpressInterest(project.id, interestType)
+    // Route to appropriate form based on interest type
+    window.location.href = `/interest/${interestType}`
     setShowInterestModal(false)
   }
 

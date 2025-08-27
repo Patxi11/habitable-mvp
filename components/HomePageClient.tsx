@@ -78,11 +78,11 @@ export default function HomePageClient() {
                 href="/projects"
                 className="group inline-flex items-center justify-center w-64 h-14 px-8 py-4 bg-gradient-to-r from-water-500 to-sustain-500 text-white font-semibold rounded-lg hover:from-water-600 hover:to-sustain-600 transition-all duration-300 text-lg shadow-lg hover:shadow-xl hover:shadow-water-500/25 transform hover:scale-105"
               >
-                <span className="whitespace-nowrap">Join</span>
+                <span className="whitespace-nowrap">{t('hero.joinButton')}</span>
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <p className="text-dark-400 text-sm mt-3 italic max-w-64">
-                For developers, investors, architects, and builders shaping the future.
+                {t('hero.joinDescription')}
               </p>
             </div>
             <div className="text-center">
@@ -90,11 +90,11 @@ export default function HomePageClient() {
                 href="/submit"
                 className="group inline-flex items-center justify-center w-64 h-14 px-8 py-4 bg-gradient-to-r from-water-500 to-sustain-500 text-white font-semibold rounded-lg hover:from-water-600 hover:to-sustain-600 transition-all duration-300 text-lg shadow-lg hover:shadow-xl hover:shadow-water-500/25 transform hover:scale-105"
               >
-                <span className="whitespace-nowrap">Promote</span>
+                <span className="whitespace-nowrap">{t('hero.promoteButton')}</span>
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <p className="text-dark-400 text-sm mt-3 italic max-w-64">
-                For landowners & cities who want to catalyze their high potential sites.
+                {t('hero.promoteDescription')}
               </p>
             </div>
           </div>
@@ -210,30 +210,30 @@ export default function HomePageClient() {
           <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
             {/* Participate */}
             <div className="text-center p-8 bg-dark-900/30 backdrop-blur-sm border border-dark-700/50 rounded-2xl hover:border-dark-600/50 transition-all duration-300">
-              <h3 className="text-2xl font-semibold mb-4 text-white">Join</h3>
+              <h3 className="text-2xl font-semibold mb-4 text-white">{t('hero.joinButton')}</h3>
               <p className="text-dark-400 mb-6 leading-relaxed">
-                For developers, investors, architects, and builders shaping the future.
+                {t('hero.joinDescription')}
               </p>
               <Link 
                 href="/signup"
                 className="group inline-flex items-center px-6 py-3 bg-gradient-to-r from-water-500 to-sustain-500 text-white font-medium rounded-lg hover:from-water-600 hover:to-sustain-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-water-500/25"
               >
-                Join a Project
+                {t('hero.joinProjectButton')}
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
             
             {/* Promote */}
             <div className="text-center p-8 bg-dark-900/30 backdrop-blur-sm border border-dark-700/50 rounded-2xl hover:border-dark-600/50 transition-all duration-300">
-              <h3 className="text-2xl font-semibold mb-4 text-white">Promote</h3>
+              <h3 className="text-2xl font-semibold mb-4 text-white">{t('hero.promoteButton')}</h3>
               <p className="text-dark-400 mb-6 leading-relaxed">
-                For landowners & cities who want to catalyze their high potential sites.
+                {t('hero.promoteDescription')}
               </p>
               <Link 
                 href="/submit"
                 className="group inline-flex items-center px-6 py-3 bg-gradient-to-r from-water-500 to-sustain-500 text-white font-medium rounded-lg hover:from-water-600 hover:to-sustain-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-water-500/25"
               >
-                Promote a Project
+                {t('hero.promoteProjectButton')}
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>

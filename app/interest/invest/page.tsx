@@ -1,0 +1,275 @@
+'use client'
+
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import Navigation from '../../../components/Navigation'
+import { ArrowLeft, DollarSign, Building2, TrendingUp, Users } from 'lucide-react'
+
+export default function InvestInterestForm() {
+  const router = useRouter()
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    phone: '',
+    investmentRange: '',
+    investmentType: '',
+    timeline: '',
+    experience: '',
+    interests: [],
+    additionalInfo: ''
+  })
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    // Handle form submission here
+    console.log('Investment interest form submitted:', formData)
+    // You can add API call here
+    alert('Thank you for your interest! We will contact you soon.')
+    router.back()
+  }
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const handleCheckboxChange = (interest: string) => {
+    setFormData({
+      ...formData,
+      interests: formData.interests.includes(interest)
+        ? formData.interests.filter(i => i !== interest)
+        : [...formData.interests, interest]
+    })
+  }
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-dark-950 via-dark-900 to-dark-950 relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-water-500/8 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-sustain-500/8 rounded-full blur-3xl" />
+      </div>
+
+      <Navigation />
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+        {/* Header */}
+        <div className="mb-8">
+          <button
+            onClick={() => router.back()}
+            className="flex items-center text-dark-400 hover:text-white mb-6 transition-colors duration-300"
+          >
+            <ArrowLeft className="w-5 h-5 mr-2" />
+            Back to Projects
+          </button>
+          
+          <div className="flex items-center mb-4">
+            <DollarSign className="w-8 h-8 text-water-400 mr-3" />
+            <h1 className="text-3xl md:text-4xl font-bold text-white">Investment Interest</h1>
+          </div>
+          <p className="text-xl text-dark-400">
+            Tell us about your investment interests and we'll connect you with suitable projects.
+          </p>
+        </div>
+
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="bg-gradient-to-br from-dark-900/50 to-dark-800/30 backdrop-blur-sm border border-dark-700/50 rounded-2xl p-8">
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Personal Information */}
+            <div>
+              <label className="block text-sm font-medium text-dark-300 mb-2">
+                Full Name *
+              </label>
+              <input
+                type="text"
+                name="name"
+                required
+                value={formData.name}
+                onChange={handleInputChange}
+                className="w-full bg-dark-800/50 border border-dark-700/50 rounded-lg px-4 py-3 text-white placeholder-dark-400 focus:outline-none focus:border-water-500/50 transition-all duration-300"
+                placeholder="Enter your full name"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-dark-300 mb-2">
+                Email Address *
+              </label>
+              <input
+                type="email"
+                name="email"
+                required
+                value={formData.email}
+                onChange={handleInputChange}
+                className="w-full bg-dark-800/50 border border-dark-700/50 rounded-lg px-4 py-3 text-white placeholder-dark-400 focus:outline-none focus:border-water-500/50 transition-all duration-300"
+                placeholder="Enter your email"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-dark-300 mb-2">
+                Company/Organization
+              </label>
+              <input
+                type="text"
+                name="company"
+                value={formData.company}
+                onChange={handleInputChange}
+                className="w-full bg-dark-800/50 border border-dark-700/50 rounded-lg px-4 py-3 text-white placeholder-dark-400 focus:outline-none focus:border-water-500/50 transition-all duration-300"
+                placeholder="Enter your company name"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-dark-300 mb-2">
+                Phone Number
+              </label>
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleInputChange}
+                className="w-full bg-dark-800/50 border border-dark-700/50 rounded-lg px-4 py-3 text-white placeholder-dark-400 focus:outline-none focus:border-water-500/50 transition-all duration-300"
+                placeholder="Enter your phone number"
+              />
+            </div>
+
+            {/* Investment Details */}
+            <div>
+              <label className="block text-sm font-medium text-dark-300 mb-2">
+                Investment Range *
+              </label>
+              <select
+                name="investmentRange"
+                required
+                value={formData.investmentRange}
+                onChange={handleInputChange}
+                className="w-full bg-dark-800/50 border border-dark-700/50 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-water-500/50 transition-all duration-300"
+              >
+                <option value="">Select investment range</option>
+                <option value="50k-250k">$50K - $250K</option>
+                <option value="250k-1m">$250K - $1M</option>
+                <option value="1m-5m">$1M - $5M</option>
+                <option value="5m-25m">$5M - $25M</option>
+                <option value="25m+">$25M+</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-dark-300 mb-2">
+                Investment Type *
+              </label>
+              <select
+                name="investmentType"
+                required
+                value={formData.investmentType}
+                onChange={handleInputChange}
+                className="w-full bg-dark-800/50 border border-dark-700/50 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-water-500/50 transition-all duration-300"
+              >
+                <option value="">Select investment type</option>
+                <option value="equity">Equity Investment</option>
+                <option value="debt">Debt Financing</option>
+                <option value="hybrid">Hybrid/Mezzanine</option>
+                <option value="grant">Grant/Donation</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-dark-300 mb-2">
+                Investment Timeline
+              </label>
+              <select
+                name="timeline"
+                value={formData.timeline}
+                onChange={handleInputChange}
+                className="w-full bg-dark-800/50 border border-dark-700/50 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-water-500/50 transition-all duration-300"
+              >
+                <option value="">Select timeline</option>
+                <option value="immediate">Immediate (0-3 months)</option>
+                <option value="short">Short-term (3-12 months)</option>
+                <option value="medium">Medium-term (1-3 years)</option>
+                <option value="long">Long-term (3+ years)</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-dark-300 mb-2">
+                Investment Experience
+              </label>
+              <select
+                name="experience"
+                value={formData.experience}
+                onChange={handleInputChange}
+                className="w-full bg-dark-800/50 border border-dark-700/50 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-water-500/50 transition-all duration-300"
+              >
+                <option value="">Select experience level</option>
+                <option value="first-time">First-time investor</option>
+                <option value="some">Some experience (1-5 projects)</option>
+                <option value="experienced">Experienced (5+ projects)</option>
+                <option value="institutional">Institutional investor</option>
+              </select>
+            </div>
+          </div>
+
+          {/* Investment Interests */}
+          <div className="mt-6">
+            <label className="block text-sm font-medium text-dark-300 mb-4">
+              Areas of Interest (Select all that apply)
+            </label>
+            <div className="grid md:grid-cols-3 gap-3">
+              {[
+                'Affordable Housing',
+                'Mixed-Use Development',
+                'Sustainable/Green Building',
+                'Urban Regeneration',
+                'Community Development',
+                'Commercial Real Estate',
+                'Infrastructure Projects',
+                'Social Impact Investing',
+                'Technology Integration'
+              ].map((interest) => (
+                <label key={interest} className="flex items-center">
+                  <input
+                    type="checkbox"
+                    checked={formData.interests.includes(interest)}
+                    onChange={() => handleCheckboxChange(interest)}
+                    className="mr-2 rounded border-dark-600 bg-dark-800 text-water-500 focus:ring-water-500"
+                  />
+                  <span className="text-dark-300 text-sm">{interest}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+
+          {/* Additional Information */}
+          <div className="mt-6">
+            <label className="block text-sm font-medium text-dark-300 mb-2">
+              Additional Information
+            </label>
+            <textarea
+              name="additionalInfo"
+              value={formData.additionalInfo}
+              onChange={handleInputChange}
+              rows={4}
+              className="w-full bg-dark-800/50 border border-dark-700/50 rounded-lg px-4 py-3 text-white placeholder-dark-400 focus:outline-none focus:border-water-500/50 transition-all duration-300"
+              placeholder="Tell us more about your investment goals, preferences, or any specific requirements..."
+            />
+          </div>
+
+          {/* Submit Button */}
+          <div className="mt-8 flex justify-end">
+            <button
+              type="submit"
+              className="px-8 py-4 bg-gradient-to-r from-water-500 to-sustain-500 text-white font-semibold rounded-lg hover:from-water-600 hover:to-sustain-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-water-500/25 transform hover:scale-105"
+            >
+              Submit Investment Interest
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  )
+}

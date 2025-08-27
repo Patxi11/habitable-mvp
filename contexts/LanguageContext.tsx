@@ -23,8 +23,12 @@ const translations = {
     'nav.logIn': 'Log In',
     
     // Hero buttons
-    'hero.participate': 'Participate',
-    'hero.promote': 'Promote',
+    'hero.joinButton': 'Join',
+    'hero.promoteButton': 'Promote',
+    'hero.joinDescription': 'For developers, investors, architects, and builders shaping the future.',
+    'hero.promoteDescription': 'For landowners & cities who want to catalyze their high potential sites.',
+    'hero.joinProjectButton': 'Join a Project',
+    'hero.promoteProjectButton': 'Promote a Project',
     
     // Homepage
     'home.hero.title': 'Habitable makes high-impact urban projects happen in the right places',
@@ -241,6 +245,96 @@ const translations = {
     'submit.additionalInfoPlaceholder': 'Any other relevant information about the project or site',
     'submit.submitButton': 'Submit Project for Review',
     'submit.reviewTime': 'Our team will review your submission and get back to you within 5-7 business days.',
+    
+    // About Page
+    'about.title': 'About',
+    'about.subtitle1': 'The housing development process is inefficient, opaque, and fragmented.',
+    'about.subtitle2': 'This blocks the creation of innovative solutions to today\'s most urgent challenges.',
+    'about.paragraph1': 'At a time when cities face overlapping crises—from housing shortages to climate risk—there\'s a pressing need to deliver the right kind of urban projects: ones that serve people, strengthen communities, and build resilience for the future.',
+    'about.paragraph2': 'Habitable was born from the desire to help cities and developers create projects that matter. We use a data-driven approach to identify opportunity, align stakeholders early, and design solutions that respond to real needs—social, environmental, and economic.',
+    'about.paragraph3': 'By streamlining pre-development and reducing risk, we make it easier to channel investment into high-impact urban projects.',
+    'about.contact.title': 'Get in Touch',
+    'about.contact.description': 'If you\'re interested in working together or learning more, reach out to us.',
+    
+    // Interest Forms - Common
+    'interest.backToProjects': 'Back to Projects',
+    'interest.fullName': 'Full Name',
+    'interest.email': 'Email Address',
+    'interest.phone': 'Phone Number',
+    'interest.additionalInfo': 'Additional Information',
+    'interest.required': '*',
+    
+    // Investment Form
+    'interest.invest.title': 'Investment Interest',
+    'interest.invest.subtitle': 'Tell us about your investment interests and we\'ll connect you with suitable projects.',
+    'interest.invest.company': 'Company/Organization',
+    'interest.invest.investmentRange': 'Investment Range',
+    'interest.invest.investmentType': 'Investment Type',
+    'interest.invest.timeline': 'Investment Timeline',
+    'interest.invest.experience': 'Investment Experience',
+    'interest.invest.interests': 'Areas of Interest (Select all that apply)',
+    'interest.invest.submit': 'Submit Investment Interest',
+    
+    // Development Form
+    'interest.develop.title': 'Development Interest',
+    'interest.develop.subtitle': 'Join our network of developers and help shape the future of sustainable communities.',
+    'interest.develop.company': 'Company/Organization',
+    'interest.develop.role': 'Your Role',
+    'interest.develop.experience': 'Experience Level',
+    'interest.develop.capacity': 'Current Capacity',
+    'interest.develop.location': 'Preferred Location',
+    'interest.develop.projectTypes': 'Project Types of Interest (Select all that apply)',
+    'interest.develop.services': 'Services You Provide (Select all that apply)',
+    'interest.develop.portfolio': 'Portfolio/Website URL',
+    'interest.develop.submit': 'Submit Development Interest',
+    
+    // Collaboration Form
+    'interest.collaborate.title': 'Collaboration Interest',
+    'interest.collaborate.subtitle': 'Partner with us to create meaningful impact in sustainable community development.',
+    'interest.collaborate.organization': 'Organization/Company',
+    'interest.collaborate.organizationType': 'Organization Type',
+    'interest.collaborate.role': 'Your Role',
+    'interest.collaborate.timeline': 'Collaboration Timeline',
+    'interest.collaborate.location': 'Geographic Focus',
+    'interest.collaborate.collaborationType': 'Types of Collaboration (Select all that apply)',
+    'interest.collaborate.expertise': 'Areas of Expertise (Select all that apply)',
+    'interest.collaborate.resources': 'Resources You Can Contribute (Select all that apply)',
+    'interest.collaborate.missionAlignment': 'Mission Alignment',
+    'interest.collaborate.submit': 'Submit Collaboration Interest',
+    
+    // Living Form
+    'interest.live.title': 'Living Interest',
+    'interest.live.subtitle': 'Find your future home in a sustainable, community-focused development.',
+    'interest.live.currentLocation': 'Current Location',
+    'interest.live.preferredLocation': 'Preferred Location',
+    'interest.live.housingType': 'Housing Type',
+    'interest.live.familySize': 'Household Size',
+    'interest.live.budget': 'Budget Range',
+    'interest.live.timeline': 'Move-in Timeline',
+    'interest.live.employment': 'Employment Status',
+    'interest.live.priorities': 'Housing Priorities (Select all that apply)',
+    'interest.live.accessibility': 'Accessibility Needs (Select all that apply)',
+    'interest.live.lifestyle': 'Lifestyle & Community Preferences',
+    'interest.live.submit': 'Submit Living Interest',
+    
+    // Bring Habitable Form
+    'interest.bring.title': 'Bring Habitable to Your City',
+    'interest.bring.subtitle': 'Partner with us to bring sustainable development solutions to your community.',
+    'interest.bring.jobTitle': 'Job Title',
+    'interest.bring.organization': 'Organization',
+    'interest.bring.organizationType': 'Organization Type',
+    'interest.bring.city': 'City',
+    'interest.bring.state': 'State/Province',
+    'interest.bring.country': 'Country',
+    'interest.bring.population': 'Population Size',
+    'interest.bring.authority': 'Decision-Making Authority',
+    'interest.bring.timeline': 'Implementation Timeline',
+    'interest.bring.challenges': 'Current Community Challenges (Select all that apply)',
+    'interest.bring.goals': 'Development Goals (Select all that apply)',
+    'interest.bring.budget': 'Available Budget/Resources',
+    'interest.bring.stakeholders': 'Key Stakeholders Involved',
+    'interest.bring.currentInitiatives': 'Current Development Initiatives',
+    'interest.bring.submit': 'Submit Partnership Interest',
   },
   es: {
     // Navigation
@@ -251,8 +345,12 @@ const translations = {
     'nav.logIn': 'Iniciar Sesión',
     
     // Hero buttons
-    'hero.participate': 'Participar',
-    'hero.promote': 'Promover',
+    'hero.joinButton': 'Unirse',
+    'hero.promoteButton': 'Promover',
+    'hero.joinDescription': 'Para desarrolladores, inversionistas, arquitectos y constructores que dan forma al futuro.',
+    'hero.promoteDescription': 'Para propietarios de tierras y ciudades que quieren catalizar sus sitios de alto potencial.',
+    'hero.joinProjectButton': 'Unirse a un Proyecto',
+    'hero.promoteProjectButton': 'Promover un Proyecto',
     
     // Homepage
     'home.hero.title': 'Habitable impulsa proyectos urbanos de alto impacto en los lugares correctos.',
@@ -428,6 +526,96 @@ const translations = {
     'submit.additionalInfoPlaceholder': 'Cualquier otra información relevante sobre el proyecto o sitio',
     'submit.submitButton': 'Enviar Proyecto para Revisión',
     'submit.reviewTime': 'Nuestro equipo revisará tu envío y te contactará en 5-7 días hábiles.',
+    
+    // About Page
+    'about.title': 'Acerca de',
+    'about.subtitle1': 'El proceso de desarrollo habitacional es ineficiente, opaco y fragmentado.',
+    'about.subtitle2': 'Esto bloquea la creación de soluciones innovadoras a los desafíos más urgentes de hoy.',
+    'about.paragraph1': 'En un momento en que las ciudades enfrentan crisis superpuestas—desde escasez de vivienda hasta riesgo climático—hay una necesidad apremiante de entregar el tipo correcto de proyectos urbanos: aquellos que sirven a las personas, fortalecen las comunidades y construyen resistencia para el futuro.',
+    'about.paragraph2': 'Habitable nació del deseo de ayudar a ciudades y desarrolladores a crear proyectos que importan. Usamos un enfoque basado en datos para identificar oportunidades, alinear partes interesadas temprano, y diseñar soluciones que respondan a necesidades reales—sociales, ambientales y económicas.',
+    'about.paragraph3': 'Al agilizar el pre-desarrollo y reducir el riesgo, facilitamos canalizar inversión hacia proyectos urbanos de alto impacto.',
+    'about.contact.title': 'Ponte en Contacto',
+    'about.contact.description': 'Si estás interesado en trabajar juntos o aprender más, contáctanos.',
+    
+    // Interest Forms - Common
+    'interest.backToProjects': 'Volver a Proyectos',
+    'interest.fullName': 'Nombre Completo',
+    'interest.email': 'Dirección de Correo',
+    'interest.phone': 'Número de Teléfono',
+    'interest.additionalInfo': 'Información Adicional',
+    'interest.required': '*',
+    
+    // Investment Form
+    'interest.invest.title': 'Interés de Inversión',
+    'interest.invest.subtitle': 'Cuéntanos sobre tus intereses de inversión y te conectaremos con proyectos adecuados.',
+    'interest.invest.company': 'Empresa/Organización',
+    'interest.invest.investmentRange': 'Rango de Inversión',
+    'interest.invest.investmentType': 'Tipo de Inversión',
+    'interest.invest.timeline': 'Cronograma de Inversión',
+    'interest.invest.experience': 'Experiencia de Inversión',
+    'interest.invest.interests': 'Áreas de Interés (Selecciona todas las que apliquen)',
+    'interest.invest.submit': 'Enviar Interés de Inversión',
+    
+    // Development Form
+    'interest.develop.title': 'Interés de Desarrollo',
+    'interest.develop.subtitle': 'Únete a nuestra red de desarrolladores y ayuda a dar forma al futuro de las comunidades sostenibles.',
+    'interest.develop.company': 'Empresa/Organización',
+    'interest.develop.role': 'Tu Rol',
+    'interest.develop.experience': 'Nivel de Experiencia',
+    'interest.develop.capacity': 'Capacidad Actual',
+    'interest.develop.location': 'Ubicación Preferida',
+    'interest.develop.projectTypes': 'Tipos de Proyectos de Interés (Selecciona todos los que apliquen)',
+    'interest.develop.services': 'Servicios que Proporcionas (Selecciona todos los que apliquen)',
+    'interest.develop.portfolio': 'URL de Portafolio/Sitio Web',
+    'interest.develop.submit': 'Enviar Interés de Desarrollo',
+    
+    // Collaboration Form
+    'interest.collaborate.title': 'Interés de Colaboración',
+    'interest.collaborate.subtitle': 'Asóciate con nosotros para crear un impacto significativo en el desarrollo comunitario sostenible.',
+    'interest.collaborate.organization': 'Organización/Empresa',
+    'interest.collaborate.organizationType': 'Tipo de Organización',
+    'interest.collaborate.role': 'Tu Rol',
+    'interest.collaborate.timeline': 'Cronograma de Colaboración',
+    'interest.collaborate.location': 'Enfoque Geográfico',
+    'interest.collaborate.collaborationType': 'Tipos de Colaboración (Selecciona todos los que apliquen)',
+    'interest.collaborate.expertise': 'Áreas de Experiencia (Selecciona todas las que apliquen)',
+    'interest.collaborate.resources': 'Recursos que Puedes Contribuir (Selecciona todos los que apliquen)',
+    'interest.collaborate.missionAlignment': 'Alineación de Misión',
+    'interest.collaborate.submit': 'Enviar Interés de Colaboración',
+    
+    // Living Form
+    'interest.live.title': 'Interés de Vivienda',
+    'interest.live.subtitle': 'Encuentra tu futuro hogar en un desarrollo sostenible y enfocado en la comunidad.',
+    'interest.live.currentLocation': 'Ubicación Actual',
+    'interest.live.preferredLocation': 'Ubicación Preferida',
+    'interest.live.housingType': 'Tipo de Vivienda',
+    'interest.live.familySize': 'Tamaño del Hogar',
+    'interest.live.budget': 'Rango de Presupuesto',
+    'interest.live.timeline': 'Cronograma de Mudanza',
+    'interest.live.employment': 'Estado de Empleo',
+    'interest.live.priorities': 'Prioridades de Vivienda (Selecciona todas las que apliquen)',
+    'interest.live.accessibility': 'Necesidades de Accesibilidad (Selecciona todas las que apliquen)',
+    'interest.live.lifestyle': 'Preferencias de Estilo de Vida y Comunidad',
+    'interest.live.submit': 'Enviar Interés de Vivienda',
+    
+    // Bring Habitable Form
+    'interest.bring.title': 'Traer Habitable a Tu Ciudad',
+    'interest.bring.subtitle': 'Asóciate con nosotros para traer soluciones de desarrollo sostenible a tu comunidad.',
+    'interest.bring.jobTitle': 'Título del Trabajo',
+    'interest.bring.organization': 'Organización',
+    'interest.bring.organizationType': 'Tipo de Organización',
+    'interest.bring.city': 'Ciudad',
+    'interest.bring.state': 'Estado/Provincia',
+    'interest.bring.country': 'País',
+    'interest.bring.population': 'Tamaño de Población',
+    'interest.bring.authority': 'Autoridad de Toma de Decisiones',
+    'interest.bring.timeline': 'Cronograma de Implementación',
+    'interest.bring.challenges': 'Desafíos Comunitarios Actuales (Selecciona todos los que apliquen)',
+    'interest.bring.goals': 'Objetivos de Desarrollo (Selecciona todos los que apliquen)',
+    'interest.bring.budget': 'Presupuesto/Recursos Disponibles',
+    'interest.bring.stakeholders': 'Partes Interesadas Clave Involucradas',
+    'interest.bring.currentInitiatives': 'Iniciativas de Desarrollo Actuales',
+    'interest.bring.submit': 'Enviar Interés de Asociación',
   }
 }
 
