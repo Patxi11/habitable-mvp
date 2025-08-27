@@ -1,8 +1,9 @@
 'use client'
 
 import { useState } from 'react'
-import { MapPin, Users, DollarSign, Calendar, Heart, ArrowRight, X } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 import { useLanguage } from '../contexts/LanguageContext'
+import { DollarSign, Users, Heart, MapPin, ArrowRight, Calendar, X } from 'lucide-react'
 
 interface Project {
   id: string
@@ -29,6 +30,7 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project, onExpressInterest }: ProjectCardProps) {
   const { t } = useLanguage()
+  const router = useRouter()
   const [showInterestModal, setShowInterestModal] = useState(false)
 
   const interestTypes = [
@@ -41,7 +43,7 @@ export default function ProjectCard({ project, onExpressInterest }: ProjectCardP
 
   const handleInterestClick = (interestType: string) => {
     // Route to appropriate form based on interest type
-    window.location.href = `/interest/${interestType}`
+    router.push(`/interest/${interestType}`)
     setShowInterestModal(false)
   }
 
