@@ -19,8 +19,8 @@ export default function BringInterestForm() {
     population: '',
     organizationType: '',
     authority: '',
-    challenges: [],
-    goals: [],
+    challenges: [] as string[],
+    goals: [] as string[],
     timeline: '',
     budget: '',
     stakeholders: '',
@@ -43,11 +43,12 @@ export default function BringInterestForm() {
   }
 
   const handleCheckboxChange = (field: string, value: string) => {
+    const currentArray = formData[field as keyof typeof formData] as string[]
     setFormData({
       ...formData,
-      [field]: formData[field as keyof typeof formData].includes(value)
-        ? formData[field as keyof typeof formData].filter((i: string) => i !== value)
-        : [...formData[field as keyof typeof formData], value]
+      [field]: currentArray.includes(value)
+        ? currentArray.filter((i: string) => i !== value)
+        : [...currentArray, value]
     })
   }
 
