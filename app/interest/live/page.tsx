@@ -5,9 +5,29 @@ import { useRouter } from 'next/navigation'
 import Navigation from '../../../components/Navigation'
 import { ArrowLeft, MapPin, Home, Users, Calendar } from 'lucide-react'
 
+// Define the exact shape for the form and multi-select keys
+type LiveForm = {
+  name: string;
+  email: string;
+  phone: string;
+  currentLocation: string;
+  preferredLocation: string;
+  housingType: string;
+  familySize: string;
+  budget: string;
+  timeline: string;
+  priorities: string[];
+  accessibility: string[];
+  lifestyle: string;
+  employment: string;
+  additionalInfo: string;
+};
+
+type MultiKeys = 'priorities' | 'accessibility'
+
 export default function LiveInterestForm() {
   const router = useRouter()
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<LiveForm>({
     name: '',
     email: '',
     phone: '',
@@ -32,18 +52,18 @@ export default function LiveInterestForm() {
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value,
+    } as LiveForm))
   }
 
-  const handleCheckboxChange = (field: string, value: string) => {
-    setFormData({
-      ...formData,
-      [field]: formData[field as keyof typeof formData].includes(value)
-        ? formData[field as keyof typeof formData].filter((i: string) => i !== value)
-        : [...formData[field as keyof typeof formData], value]
+  function toggleMulti(field: MultiKeys, value: string) {
+    setFormData(prev => {
+      const arr = prev[field]
+      const next = arr.includes(value) ? arr.filter(i => i !== value) : [...arr, value]
+      return { ...prev, [field]: next }
     })
   }
 
@@ -277,7 +297,7 @@ export default function LiveInterestForm() {
                   <input
                     type="checkbox"
                     checked={formData.priorities.includes(priority)}
-                    onChange={() => handleCheckboxChange('priorities', priority)}
+                    onChange={() => toggleMulti('priorities', priority)}
                     className="mr-2 rounded border-dark-600 bg-dark-800 text-water-500 focus:ring-water-500"
                   />
                   <span className="text-dark-300 text-sm">{priority}</span>
@@ -307,7 +327,7 @@ export default function LiveInterestForm() {
                   <input
                     type="checkbox"
                     checked={formData.accessibility.includes(need)}
-                    onChange={() => handleCheckboxChange('accessibility', need)}
+                    onChange={() => toggleMulti('accessibility', need)}
                     className="mr-2 rounded border-dark-600 bg-dark-800 text-water-500 focus:ring-water-500"
                   />
                   <span className="text-dark-300 text-sm">{need}</span>

@@ -5,9 +5,28 @@ import { useRouter } from 'next/navigation'
 import Navigation from '../../../components/Navigation'
 import { ArrowLeft, Building2, Users, Briefcase, MapPin } from 'lucide-react'
 
+// Define the exact shape for the form and multi-select keys
+type DevelopForm = {
+  name: string;
+  email: string;
+  company: string;
+  phone: string;
+  role: string;
+  experience: string;
+  projectTypes: string[];
+  capacity: string;
+  timeline: string;
+  location: string;
+  services: string[];
+  portfolio: string;
+  additionalInfo: string;
+};
+
+type MultiKeys = 'projectTypes' | 'services'
+
 export default function DevelopInterestForm() {
   const router = useRouter()
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<DevelopForm>({
     name: '',
     email: '',
     company: '',
@@ -31,18 +50,18 @@ export default function DevelopInterestForm() {
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value,
+    } as DevelopForm))
   }
 
-  const handleCheckboxChange = (field: string, value: string) => {
-    setFormData({
-      ...formData,
-      [field]: formData[field as keyof typeof formData].includes(value)
-        ? formData[field as keyof typeof formData].filter((i: string) => i !== value)
-        : [...formData[field as keyof typeof formData], value]
+  function toggleMulti(field: MultiKeys, value: string) {
+    setFormData(prev => {
+      const arr = prev[field]
+      const next = arr.includes(value) ? arr.filter(i => i !== value) : [...arr, value]
+      return { ...prev, [field]: next }
     })
   }
 
@@ -233,7 +252,7 @@ export default function DevelopInterestForm() {
                   <input
                     type="checkbox"
                     checked={formData.projectTypes.includes(type)}
-                    onChange={() => handleCheckboxChange('projectTypes', type)}
+                    onChange={() => toggleMulti('projectTypes', type)}
                     className="mr-2 rounded border-dark-600 bg-dark-800 text-water-500 focus:ring-water-500"
                   />
                   <span className="text-dark-300 text-sm">{type}</span>
@@ -263,7 +282,7 @@ export default function DevelopInterestForm() {
                   <input
                     type="checkbox"
                     checked={formData.services.includes(service)}
-                    onChange={() => handleCheckboxChange('services', service)}
+                    onChange={() => toggleMulti('services', service)}
                     className="mr-2 rounded border-dark-600 bg-dark-800 text-water-500 focus:ring-water-500"
                   />
                   <span className="text-dark-300 text-sm">{service}</span>
