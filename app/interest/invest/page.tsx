@@ -5,9 +5,23 @@ import { useRouter } from 'next/navigation'
 import Navigation from '../../../components/Navigation'
 import { ArrowLeft, DollarSign, Building2, TrendingUp, Users } from 'lucide-react'
 
+// Define the exact shape for the form
+type InvestForm = {
+  name: string;
+  email: string;
+  company: string;
+  phone: string;
+  investmentRange: string;
+  investmentType: string;
+  timeline: string;
+  experience: string;
+  interests: string[];
+  additionalInfo: string;
+};
+
 export default function InvestInterestForm() {
   const router = useRouter()
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<InvestForm>({
     name: '',
     email: '',
     company: '',
@@ -30,18 +44,18 @@ export default function InvestInterestForm() {
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value,
+    } as InvestForm))
   }
 
   const handleCheckboxChange = (interest: string) => {
-    setFormData({
-      ...formData,
-      interests: formData.interests.includes(interest)
-        ? formData.interests.filter(i => i !== interest)
-        : [...formData.interests, interest]
+    setFormData(prev => {
+      const arr = prev.interests
+      const next = arr.includes(interest) ? arr.filter(i => i !== interest) : [...arr, interest]
+      return { ...prev, interests: next }
     })
   }
 

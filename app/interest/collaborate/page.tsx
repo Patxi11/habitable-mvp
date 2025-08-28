@@ -180,7 +180,7 @@ export default function CollaborateInterestForm() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-dark-300 mb-2">
+              <label className="block text sm font-medium text-dark-300 mb-2">
                 Your Role *
               </label>
               <input
@@ -364,3 +364,4 @@ export default function CollaborateInterestForm() {
     </div>
   )
 }
+
