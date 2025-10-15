@@ -10,52 +10,52 @@ import { Search, Filter, MapPin, DollarSign, Calendar, ArrowRight } from 'lucide
 const mockProjects = [
   {
     id: '1',
-    title: 'Riverside Commons',
-    location: 'Detroit, MI',
-    description: 'Mixed-use development combining affordable housing, community spaces, and green infrastructure along the Detroit River waterfront. This project aims to revitalize an underutilized industrial area while providing sustainable housing options.',
-    type: 'Mixed-Use',
+    title: 'Centro Habitable Mexicali',
+    location: 'Mexicali, Baja California, MX',
+    description: 'Infill mixed-use redevelopment with affordable and workforce housing over active ground-floor retail and community services. The project stitches together vacant parcels to create a shaded public plaza and safer pedestrian connections.',
+    type: 'Infill Mixed-Use',
     investmentRange: '$15M - $25M',
     timeline: '24-36 months',
     stakeholdersNeeded: ['Investors', 'Architects', 'Community Partners'],
-    imageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=300&fit=crop&crop=entropy&auto=format&q=80',
-    tags: ['Affordable Housing', 'Waterfront', 'Green Infrastructure'],
+    imageUrl: '/MexicaliBuilding2.png',
+    tags: ['Affordable Housing', 'Infill', 'Mixed-Use', 'Placemaking'],
     impactMetrics: {
-      affordableUnits: 120,
-      greenSpaceAcres: 3.5,
-      jobsCreated: 85
+      affordableUnits: 140,
+      greenSpaceAcres: 1.2,
+      jobsCreated: 95
     }
   },
   {
     id: '2',
-    title: 'Innovation District Hub',
-    location: 'Cleveland, OH',
-    description: 'Adaptive reuse of historic manufacturing buildings to create a mixed-income residential and commercial hub that supports local entrepreneurs and small businesses.',
-    type: 'Adaptive Reuse',
+    title: 'Downtown Brownsville Lofts',
+    location: 'Brownsville, TX',
+    description: 'Main Street infill with mixed-income apartments over street-activating retail and local business incubator space. Enhances walkability, supports small businesses, and brings residents back to the historic core.',
+    type: 'Infill Mixed-Use',
     investmentRange: '$8M - $12M',
     timeline: '18-24 months',
     stakeholdersNeeded: ['Developers', 'Historic Preservation Experts', 'Local Business Partners'],
-    imageUrl: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=400&h=300&fit=crop&crop=entropy&auto=format&q=80',
-    tags: ['Historic Preservation', 'Small Business', 'Mixed-Income'],
+    imageUrl: 'https://images.unsplash.com/photo-1460317442991-0ec209397118?w=400&h=300&fit=crop&crop=entropy&auto=format&q=80',
+    tags: ['Mixed-Income', 'Infill', 'Main Street', 'Historic Core'],
     impactMetrics: {
-      affordableUnits: 75,
+      affordableUnits: 80,
       jobsCreated: 150
     }
   },
   {
     id: '3',
-    title: 'Green Transit Village',
-    location: 'Buffalo, NY',
-    description: 'Transit-oriented development featuring energy-efficient housing, retail spaces, and community gardens near a major bus rapid transit station.',
-    type: 'Transit-Oriented',
+    title: 'Barrio Vivo Monterrey',
+    location: 'Monterrey, Nuevo León, MX',
+    description: 'Compact, walkable infill district with mid-rise housing above neighborhood-serving retail, co-working, and childcare. Prioritizes shade, microclimate comfort, and energy-efficient buildings.',
+    type: 'Infill Mixed-Use',
     investmentRange: '$20M - $30M',
     timeline: '30-42 months',
     stakeholdersNeeded: ['Transit Authority', 'Green Building Specialists', 'Community Organizations'],
-    imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop&crop=entropy&auto=format&q=80',
-    tags: ['Transit-Oriented', 'Energy Efficient', 'Community Gardens'],
+    imageUrl: 'https://images.unsplash.com/photo-1501183638710-841dd1904471?w=400&h=300&fit=crop&crop=entropy&auto=format&q=80',
+    tags: ['Infill', 'Mixed-Use', 'Energy Efficient', 'Family Services'],
     impactMetrics: {
-      affordableUnits: 200,
-      greenSpaceAcres: 2.8,
-      jobsCreated: 120
+      affordableUnits: 210,
+      greenSpaceAcres: 2.0,
+      jobsCreated: 130
     }
   }
 ]

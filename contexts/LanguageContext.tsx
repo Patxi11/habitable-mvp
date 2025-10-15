@@ -97,7 +97,7 @@ const translations = {
     'home.process.step8.description': 'We support development to meet social, urban and financial objectives.',
     
     'home.cta.title': 'Ready to Make an Impact?',
-    'home.cta.subtitle': 'Join our community of change-makers working to create sustainable, resilient urban communities.',
+    'home.cta.subtitle': 'Join our community working to create more habitable urban communities.',
     
     'home.cta.participate.title': 'Participate',
     'home.cta.participate.description': 'For architects, developers, investors, and buyers looking to collaborate on sustainable projects.',
