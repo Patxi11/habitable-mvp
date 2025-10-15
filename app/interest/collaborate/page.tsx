@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Navigation from '../../../components/Navigation'
+import { useLanguage } from '../../../contexts/LanguageContext'
 import { ArrowLeft, Heart, Users, Lightbulb, Globe } from 'lucide-react'
 
 // Strong typing for form state and multi-select fields
@@ -25,6 +26,7 @@ type FormDataState = {
 type MultiKeys = 'collaborationType' | 'expertise' | 'resources'
 
 export default function CollaborateInterestForm() {
+  const { t } = useLanguage()
   const router = useRouter()
   const [formData, setFormData] = useState<FormDataState>({
     name: '',
@@ -45,7 +47,7 @@ export default function CollaborateInterestForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     console.log('Collaboration interest form submitted:', formData)
-    alert('Thank you for your interest! We will contact you soon.')
+    alert(t('interest.thankYou'))
     router.back()
   }
 
@@ -74,23 +76,21 @@ export default function CollaborateInterestForm() {
 
       <Navigation />
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10 transform-gpu origin-top scale-[0.8]">
         <div className="mb-8">
           <button
             onClick={() => router.back()}
             className="flex items-center text-dark-400 hover:text-white mb-6 transition-colors duration-300"
           >
             <ArrowLeft className="w-5 h-5 mr-2" />
-            Back to Projects
+            {t('interest.backToProjects')}
           </button>
           
           <div className="flex items-center mb-4">
             <Heart className="w-8 h-8 text-water-400 mr-3" />
-            <h1 className="text-3xl md:text-4xl font-bold text-white">Collaboration Interest</h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-white">{t('interest.collaborate.title')}</h1>
           </div>
-          <p className="text-xl text-dark-400">
-            Partner with us to create meaningful impact in sustainable community development.
-          </p>
+          <p className="text-xl text-dark-400">{t('interest.collaborate.subtitle')}</p>
         </div>
 
         <form onSubmit={handleSubmit} className="bg-gradient-to-br from-dark-900/50 to-dark-800/30 backdrop-blur-sm border border-dark-700/50 rounded-2xl p-8">
@@ -356,7 +356,7 @@ export default function CollaborateInterestForm() {
               type="submit"
               className="px-8 py-4 bg-gradient-to-r from-water-500 to-sustain-500 text-white font-semibold rounded-lg hover:from-water-600 hover:to-sustain-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-water-500/25 transform hover:scale-105"
             >
-              Submit Collaboration Interest
+              {t('interest.collaborate.submit')}
             </button>
           </div>
         </form>

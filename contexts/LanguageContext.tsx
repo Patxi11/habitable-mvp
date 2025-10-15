@@ -31,7 +31,7 @@ const translations = {
     'hero.promoteProjectButton': 'Promote a Project',
     
     // Homepage
-    'home.hero.title': 'Habitable makes high-impact urban projects happen in the right places',
+    'home.hero.title': 'Making high-impact urban projects happen in the right places',
     'home.hero.subtitle': 'A platform that streamlines pre-development and aligns key players early around projects that benefit people and cities.',
     'home.hero.exploreProjects': 'Explore Projects',
     'home.hero.getStarted': 'Get Started',
@@ -129,11 +129,21 @@ const translations = {
     'projects.projects': 'projects',
     'projects.noResults.title': 'No projects found',
     'projects.noResults.description': 'Try adjusting your search terms or filters to find more projects.',
+    'projects.filterByTags': 'Filter by Tags',
+    'projects.clearAll': 'Clear all filters',
     'projects.clearSearch': 'Clear Search',
     'projects.expressInterest': 'Express Interest',
     'projects.cta.title': "Don't see what you're looking for?",
     'projects.cta.description': 'Have a project site or development opportunity that could benefit from our platform? Submit it for review by our team.',
     'projects.cta.button': 'Submit Your Project',
+    // Project Card - Metrics
+    'projects.card.investmentRange': 'Investment Range',
+    'projects.card.timeline': 'Timeline',
+    'projects.card.expectedIRR': 'Expected IRR',
+    'projects.card.totalInvestment': 'Total Investment Amount',
+    'projects.card.hbtblIndex': 'HBTBL Index',
+    'projects.card.minimumInvestment': 'Minimum Investment',
+    'projects.card.impactScore': 'Impact Score',
     
     // Project Interest Modal
     'project.interest.title': 'Express Your Interest',
@@ -245,6 +255,7 @@ const translations = {
     'submit.additionalInfoPlaceholder': 'Any other relevant information about the project or site',
     'submit.submitButton': 'Submit Project for Review',
     'submit.reviewTime': 'Our team will review your submission and get back to you within 5-7 business days.',
+    'submit.successAlert': 'Project submitted successfully! Our team will review your submission and get back to you within 5-7 business days.',
     
     // About Page
     'about.title': 'About',
@@ -263,6 +274,7 @@ const translations = {
     'interest.phone': 'Phone Number',
     'interest.additionalInfo': 'Additional Information',
     'interest.required': '*',
+    'interest.thankYou': 'Thank you for your interest! We will contact you soon.',
     
     // Investment Form
     'interest.invest.title': 'Investment Interest',
@@ -353,7 +365,7 @@ const translations = {
     'hero.promoteProjectButton': 'Promover un Proyecto',
     
     // Homepage
-    'home.hero.title': 'Habitable impulsa proyectos urbanos de alto impacto en los lugares correctos.',
+    'home.hero.title': 'Impulsando proyectos urbanos de alto impacto en los lugares correctos',
     'home.hero.subtitle': 'Una plataforma que agiliza el pre-desarrollo y alinea actores clave temprano en torno a proyectos que benefician a las personas y ciudades.',
     'home.hero.exploreProjects': 'Explorar Proyectos',
     'home.hero.getStarted': 'Comenzar',
@@ -410,11 +422,21 @@ const translations = {
     'projects.projects': 'proyectos',
     'projects.noResults.title': 'No se encontraron proyectos',
     'projects.noResults.description': 'Intenta ajustar tus términos de búsqueda o filtros para encontrar más proyectos.',
+    'projects.filterByTags': 'Filtrar por Etiquetas',
+    'projects.clearAll': 'Limpiar todos los filtros',
     'projects.clearSearch': 'Limpiar Búsqueda',
     'projects.expressInterest': 'Expresar Interés',
     'projects.cta.title': '¿No encuentras lo que buscas?',
     'projects.cta.description': '¿Tienes un sitio de proyecto u oportunidad de desarrollo que podría beneficiarse de nuestra plataforma? Envíalo para revisión por nuestro equipo.',
     'projects.cta.button': 'Enviar Tu Proyecto',
+    // Project Card - Metrics
+    'projects.card.investmentRange': 'Rango de Inversión',
+    'projects.card.timeline': 'Cronograma',
+    'projects.card.expectedIRR': 'TIR Esperada',
+    'projects.card.totalInvestment': 'Inversión Total Requerida',
+    'projects.card.hbtblIndex': 'Índice HBTBL',
+    'projects.card.minimumInvestment': 'Inversión Mínima',
+    'projects.card.impactScore': 'Índice de Impacto',
     
     // Project Interest Modal
     'project.interest.title': 'Expresar Tu Interés',
@@ -526,14 +548,15 @@ const translations = {
     'submit.additionalInfoPlaceholder': 'Cualquier otra información relevante sobre el proyecto o sitio',
     'submit.submitButton': 'Enviar Proyecto para Revisión',
     'submit.reviewTime': 'Nuestro equipo revisará tu envío y te contactará en 5-7 días hábiles.',
+    'submit.successAlert': '¡Proyecto enviado con éxito! Nuestro equipo revisará tu envío y te contactará en 5-7 días hábiles.',
     
     // About Page
     'about.title': 'Acerca de',
     'about.subtitle1': 'El proceso de desarrollo habitacional es ineficiente, opaco y fragmentado.',
     'about.subtitle2': 'Esto bloquea la creación de soluciones innovadoras a los desafíos más urgentes de hoy.',
-    'about.paragraph1': 'En un momento en que las ciudades enfrentan crisis superpuestas—desde escasez de vivienda hasta riesgo climático—hay una necesidad apremiante de entregar el tipo correcto de proyectos urbanos: aquellos que sirven a las personas, fortalecen las comunidades y construyen resistencia para el futuro.',
-    'about.paragraph2': 'Habitable nació del deseo de ayudar a ciudades y desarrolladores a crear proyectos que importan. Usamos un enfoque basado en datos para identificar oportunidades, alinear partes interesadas temprano, y diseñar soluciones que respondan a necesidades reales—sociales, ambientales y económicas.',
-    'about.paragraph3': 'Al agilizar el pre-desarrollo y reducir el riesgo, facilitamos canalizar inversión hacia proyectos urbanos de alto impacto.',
+    'about.paragraph1': 'En un momento en que las ciudades enfrentan crisis superpuestas, desde escasez de vivienda hasta riesgo climático, hay una necesidad urgente de entregar el tipo correcto de proyectos urbanos: aquellos que sirven a las personas, fortalecen las comunidades y construyen resiliencia para el futuro.',
+    'about.paragraph2': 'Habitable nació del deseo de ayudar a ciudades y desarrolladores a crear proyectos que importan. Usamos un enfoque basado en datos para identificar oportunidades, alinear partes interesadas temprano, y diseñar soluciones que respondan a necesidades reales; sociales, ambientales y económicas.',
+    'about.paragraph3': 'Al agilizar el pre-desarrollo y reducir el riesgo, facilitamos el flujo de capital hacia proyectos urbanos de alto impacto.',
     'about.contact.title': 'Ponte en Contacto',
     'about.contact.description': 'Si estás interesado en trabajar juntos o aprender más, contáctanos.',
     
@@ -544,6 +567,7 @@ const translations = {
     'interest.phone': 'Número de Teléfono',
     'interest.additionalInfo': 'Información Adicional',
     'interest.required': '*',
+    'interest.thankYou': '¡Gracias por tu interés! Nos pondremos en contacto contigo pronto.',
     
     // Investment Form
     'interest.invest.title': 'Interés de Inversión',

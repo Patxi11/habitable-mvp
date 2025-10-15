@@ -23,7 +23,12 @@ const mockProjects = [
       affordableUnits: 140,
       greenSpaceAcres: 1.2,
       jobsCreated: 95
-    }
+    },
+    expectedIRR: '14% - 23%',
+    totalInvestmentAmount: '$25,000,000',
+    hbtblIndex: '75/100',
+    minimumInvestment: '$5,000',
+    impactScore: '82/100'
   },
   {
     id: '2',
@@ -39,7 +44,12 @@ const mockProjects = [
     impactMetrics: {
       affordableUnits: 80,
       jobsCreated: 150
-    }
+    },
+    expectedIRR: '12% - 18%',
+    totalInvestmentAmount: '$10,000,000',
+    hbtblIndex: '71/100',
+    minimumInvestment: '$5,000',
+    impactScore: '78/100'
   },
   {
     id: '3',
@@ -56,7 +66,12 @@ const mockProjects = [
       affordableUnits: 210,
       greenSpaceAcres: 2.0,
       jobsCreated: 130
-    }
+    },
+    expectedIRR: '15% - 22%',
+    totalInvestmentAmount: '$30,000,000',
+    hbtblIndex: '77/100',
+    minimumInvestment: '$10,000',
+    impactScore: '85/100'
   }
 ]
 
@@ -94,7 +109,7 @@ export default function Projects() {
       
       <Navigation />
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10 transform-gpu origin-top scale-[0.8]">
         {/* Header */}
         <div className="mb-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">{t('projects.title')}</h1>
@@ -108,7 +123,7 @@ export default function Projects() {
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
               <input
                 type="text"
-                placeholder="Search projects by name, location, or description..."
+                placeholder={t('projects.search.placeholder')}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full bg-dark-900/50 backdrop-blur-sm border border-dark-700/50 rounded-lg px-4 py-3 pl-10 text-white placeholder-dark-400 focus:outline-none focus:border-water-500/50 transition-all duration-300"
@@ -119,7 +134,7 @@ export default function Projects() {
               className="bg-dark-800/50 backdrop-blur-sm border border-dark-700/50 text-white font-medium py-3 px-4 rounded-lg hover:bg-dark-700/50 hover:border-dark-600/50 transition-all duration-300 flex items-center"
             >
               <Filter className="w-4 h-4 mr-2" />
-              Filters
+              {t('projects.filters')}
               {selectedFilters.length > 0 && (
                 <span className="ml-2 bg-gradient-to-r from-water-500 to-sustain-500 text-white text-xs px-2 py-1 rounded-full">
                   {selectedFilters.length}
@@ -131,7 +146,7 @@ export default function Projects() {
           {/* Filter Options */}
           {showFilters && (
             <div className="bg-gradient-to-br from-dark-900/50 to-dark-800/30 backdrop-blur-sm border border-dark-700/50 rounded-2xl p-6">
-              <h3 className="font-medium mb-3 text-white">Filter by Tags</h3>
+              <h3 className="font-medium mb-3 text-white">{t('projects.filterByTags')}</h3>
               <div className="flex flex-wrap gap-2">
                 {availableFilters.map((filter) => (
                   <button
@@ -158,7 +173,7 @@ export default function Projects() {
                   onClick={() => setSelectedFilters([])}
                   className="text-dark-400 hover:text-water-400 text-sm mt-3 transition-colors duration-300"
                 >
-                  Clear all filters
+                  {t('projects.clearAll')}
                 </button>
               )}
             </div>
@@ -188,10 +203,8 @@ export default function Projects() {
             <div className="text-dark-400 mb-4">
               <Search className="w-16 h-16 mx-auto" />
             </div>
-            <h3 className="text-xl font-medium text-white mb-2">No projects found</h3>
-            <p className="text-dark-400 mb-4">
-              Try adjusting your search terms or filters to find more projects.
-            </p>
+            <h3 className="text-xl font-medium text-white mb-2">{t('projects.noResults.title')}</h3>
+            <p className="text-dark-400 mb-4">{t('projects.noResults.description')}</p>
             <button
               onClick={() => {
                 setSearchTerm('')
@@ -199,7 +212,7 @@ export default function Projects() {
               }}
               className="bg-gradient-to-r from-water-500 to-sustain-500 text-white font-medium py-3 px-6 rounded-lg hover:from-water-600 hover:to-sustain-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-water-500/25"
             >
-              Clear Search
+              {t('projects.clearSearch')}
             </button>
           </div>
         )}
@@ -207,13 +220,12 @@ export default function Projects() {
         {/* Call to Action */}
         <div className="mt-16 text-center">
           <div className="bg-gradient-to-r from-dark-900/50 to-dark-800/50 backdrop-blur-sm border border-dark-700/50 rounded-2xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold mb-4 text-white">Don't see what you're looking for?</h3>
+            <h3 className="text-2xl font-bold mb-4 text-white">{t('projects.cta.title')}</h3>
             <p className="text-dark-400 mb-6 leading-relaxed">
-              Have a project site or development opportunity that could benefit from our platform? 
-              Submit it for review by our team.
+              {t('projects.cta.description')}
             </p>
             <a href="/submit" className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-water-500 to-sustain-500 text-white font-semibold rounded-lg hover:from-water-600 hover:to-sustain-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-water-500/25 transform hover:scale-105">
-              Submit Your Project
+              {t('projects.cta.button')}
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
@@ -222,3 +234,5 @@ export default function Projects() {
     </div>
   )
 }
+
+

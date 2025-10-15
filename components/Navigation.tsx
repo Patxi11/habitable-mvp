@@ -18,9 +18,9 @@ export default function Navigation() {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <img 
-              src="/habitable-logo-text.svg" 
+              src="/habitable-logo-text.svg?v=11" 
               alt="HABITABLE" 
-              className="h-8 w-auto text-white"
+              className="h-12 w-auto text-white"
               style={{filter: 'brightness(0) invert(1)'}}
             />
           </Link>

@@ -30,7 +30,7 @@ export default function LoginPage() {
     <div className="min-h-screen bg-black">
       <Navigation />
       
-      <div className="flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8">
+      <div className="flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8 transform-gpu origin-top scale-[0.8]">
         <div className="max-w-md w-full">
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold text-white mb-2">{t('login.title')}</h1>

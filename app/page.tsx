@@ -7,6 +7,7 @@ export default function HomePage() {
       {/* Subtle gradient overlay for depth */}
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-900/10 to-transparent pointer-events-none" />
       <Navigation />
+      {/* Render content unscaled here; individual sections handle their own scaling */}
       <HomePageClient />
     </div>
   )

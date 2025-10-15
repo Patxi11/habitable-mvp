@@ -53,16 +53,25 @@ export default function HomePageClient() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center px-4 bg-gradient-to-br from-dark-950 via-dark-900 to-dark-950">
+      <section className="relative min-h-[calc(100vh-56px)] flex items-center justify-center px-4 bg-gradient-to-br from-dark-950 via-dark-900 to-dark-950">
         {/* Background elements */}
         <div className="absolute inset-0">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-water-500/10 rounded-full blur-3xl" />
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-sustain-500/10 rounded-full blur-3xl" />
         </div>
         
-        <div className="max-w-7xl mx-auto text-center relative z-10">
+        <div className="max-w-7xl mx-auto text-center relative z-10 transform-gpu origin-center scale-[0.8]">
+          {/* Hero Logo */}
+          <div className="flex justify-center mb-3 md:mb-4 -mt-[50px]">
+            <img
+              src="/habitable-logo-text.svg?v=11"
+              alt="HABITABLE logo"
+              className="w-[28rem] sm:w-[32rem] md:w-[40rem] lg:w-[48rem] h-auto"
+              style={{ filter: 'brightness(0) invert(1)' }}
+            />
+          </div>
           {/* Key sentence */}
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-8 leading-tight w-full mx-auto px-2 text-white">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-8 leading-tight w-full mx-auto px-2 text-white transform-gpu scale-[1.2] origin-center">
             {t('home.hero.title')}
           </h1>
           
@@ -109,7 +118,7 @@ export default function HomePageClient() {
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-sustain-500/8 rounded-full blur-3xl" />
         </div>
         
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="max-w-7xl mx-auto px-6 relative z-10 transform-gpu origin-top scale-[0.8]">
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
@@ -132,25 +141,25 @@ export default function HomePageClient() {
                   )}
                   
                   {/* Step Card */}
-                  <div className="relative bg-gradient-to-br from-dark-900/50 to-dark-800/30 backdrop-blur-sm border border-dark-700/50 rounded-2xl p-6 hover:border-dark-600/50 hover:shadow-2xl hover:shadow-water-500/10 transition-all duration-300 group-hover:transform group-hover:scale-105">
+                  <div className="relative w-full aspect-square bg-gradient-to-br from-dark-900/50 to-dark-800/30 backdrop-blur-sm border border-dark-700/50 rounded-2xl p-5 hover:border-dark-600/50 hover:shadow-2xl hover:shadow-water-500/10 transition-all duration-300 group-hover:transform group-hover:scale-105 flex flex-col items-center justify-center text-center gap-4">
                     {/* Step Number */}
                     <div className="absolute -top-4 -left-4 w-8 h-8 bg-gradient-to-br from-water-500 to-water-600 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg">
                       {index + 1}
                     </div>
                     
                     {/* Icon Container */}
-                    <div className="mb-6">
-                      <div className="w-16 h-16 bg-gradient-to-br from-water-500/20 to-sustain-500/20 rounded-xl flex items-center justify-center group-hover:from-water-500/30 group-hover:to-sustain-500/30 transition-all duration-300">
-                        <IconComponent className="w-8 h-8 text-water-400 group-hover:text-water-300 transition-colors duration-300" />
+                    <div className="mb-1">
+                      <div className="w-14 h-14 bg-gradient-to-br from-water-500/20 to-sustain-500/20 rounded-xl flex items-center justify-center group-hover:from-water-500/30 group-hover:to-sustain-500/30 transition-all duration-300">
+                        <IconComponent className="w-7 h-7 text-water-400 group-hover:text-water-300 transition-colors duration-300" />
                       </div>
                     </div>
                     
                     {/* Content */}
-                    <div className="space-y-3">
-                      <h3 className="text-white font-bold text-lg leading-tight group-hover:text-water-100 transition-colors duration-300">
+                    <div className="space-y-2 max-w-[18rem]">
+                      <h3 className="text-white font-bold text-base leading-snug group-hover:text-water-100 transition-colors duration-300">
                         {step.title}
                       </h3>
-                      <p className="text-dark-400 text-sm leading-relaxed group-hover:text-dark-300 transition-colors duration-300">
+                      <p className="text-dark-400 text-xs leading-relaxed group-hover:text-dark-300 transition-colors duration-300">
                         {step.description}
                       </p>
                     </div>
@@ -199,7 +208,7 @@ export default function HomePageClient() {
 
       {/* CTA Section */}
       <section className="py-24 bg-gradient-to-b from-dark-900 to-dark-950">
-        <div className="max-w-6xl mx-auto px-4 text-center">
+        <div className="max-w-6xl mx-auto px-4 text-center transform-gpu origin-top scale-[0.8]">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
             {t('home.cta.title')}
           </h2>

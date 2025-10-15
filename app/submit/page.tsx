@@ -95,14 +95,14 @@ export default function Submit() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     // In a real app, this would upload files and submit to Supabase
-    alert('Project submitted successfully! Our team will review your submission and get back to you within 5-7 business days.')
+    alert(t('submit.successAlert'))
   }
 
   return (
     <div className="min-h-screen bg-black">
       <Navigation />
       
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 transform-gpu origin-top scale-[0.8]">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-white mb-4">{t('submit.title')}</h1>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">

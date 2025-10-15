@@ -11,7 +11,7 @@ export default function About() {
     <div className="min-h-screen bg-black">
       <Navigation />
       
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 transform-gpu origin-top scale-[0.8]">
         {/* Header */}
         <div className="mb-16">
           <h1 className="text-4xl md:text-5xl font-medium text-white mb-8 leading-tight">
@@ -21,26 +21,12 @@ export default function About() {
 
         {/* Content */}
         <div className="prose prose-lg max-w-none">
-          <div className="space-y-8 text-gray-300 leading-relaxed">
-            <p className="text-xl text-gray-400">
-              {t('about.subtitle1')}
-            </p>
-            
-            <p className="text-xl text-gray-400">
-              {t('about.subtitle2')}
-            </p>
-
-            <p className="text-lg">
-              {t('about.paragraph1')}
-            </p>
-
-            <p className="text-lg">
-              {t('about.paragraph2')}
-            </p>
-
-            <p className="text-lg">
-              {t('about.paragraph3')}
-            </p>
+          <div className="space-y-6 text-gray-300 leading-relaxed">
+            <p className="text-xl text-gray-300">{t('about.subtitle1')}</p>
+            <p className="text-xl text-gray-300">{t('about.subtitle2')}</p>
+            <p className="text-lg">{t('about.paragraph1')}</p>
+            <p className="text-lg">{t('about.paragraph2')}</p>
+            <p className="text-lg">{t('about.paragraph3')}</p>
           </div>
         </div>
 

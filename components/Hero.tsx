@@ -16,6 +16,15 @@ export default function Hero() {
       </div>
       
       <div className="relative z-10 max-w-6xl mx-auto px-4 text-center">
+        {/* Hero Logo */}
+        <div className="flex justify-center mb-6 md:mb-8">
+          <img
+            src="/habitable-logo-text.svg?v=11"
+            alt="HABITABLE logo"
+            className="w-72 md:w-96 lg:w-[28rem] h-auto"
+            style={{ filter: 'brightness(0) invert(1)' }}
+          />
+        </div>
         {/* Main heading */}
         <div className="mb-8">
           <div className="flex items-center justify-center mb-6">
