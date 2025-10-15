@@ -2,7 +2,7 @@
   <text x="15" y="60" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="currentColor">
     HABITABL
   </text>
-  <rect x="200" y="36" width="27" height="6" fill="currentColor"/>
-  <rect x="200" y="45" width="27" height="6" fill="currentColor"/>
-  <rect x="200" y="54" width="27" height="6" fill="currentColor"/>
+  <rect x="200" y="33.5" width="26.5" height="5" fill="currentColor"/>
+  <rect x="200" y="44.25" width="26.5" height="5" fill="currentColor"/>
+  <rect x="200" y="55" width="26.5" height="5" fill="currentColor"/>
 </svg>
