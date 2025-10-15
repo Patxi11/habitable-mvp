@@ -50,10 +50,11 @@ export default function CollaborateInterestForm() {
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value,
+    } as FormDataState))
   }
 
   function toggleMulti(field: MultiKeys, value: string) {
